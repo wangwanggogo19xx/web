@@ -35,3 +35,36 @@ var nav = [
 		url : "www.baidu.com"
 	},
 ]
+var setFrameHeight = function(){
+	var mainheight = $("#myFrame").contents().find("body").height() + 30;
+    $("#myFrame").height(mainheight);
+}
+
+$(function(){
+	$("#myFrame").load(function () {
+         setFrameHeight();
+      });
+	$(".document,.culture,.dynamic,.service,.video,.counsel").on('click', function() {
+       $(".nav>li").removeClass('active');
+       $(this).addClass('active');
+       var nav_title = $(this).children('a').html();
+       switch(nav_title){
+       	case "法制档案":
+       		$("#myFrame").attr('src', 'archives.html');
+       		break;
+   		case "法制文化":
+   			$("#myFrame").attr('src', 'culture.html');
+   			break;
+   		case "法制动态":
+   			$("#myFrame").attr('src', 'culture.html');
+   			break;
+   		case "法制服务":
+   			break;
+   		case "法制视频":
+   			break;
+   		case "法制咨询":
+   			break;
+       }
+       
+	});
+})
